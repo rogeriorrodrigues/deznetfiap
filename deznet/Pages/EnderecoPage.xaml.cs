@@ -5,6 +5,7 @@ using System.Net.Http;
 using Acr.UserDialogs;
 
 using Xamarin.Forms;
+using Plugin.Geolocator;
 
 namespace deznet
 {
@@ -13,15 +14,28 @@ namespace deznet
 		public EnderecoPage()
 		{
 			InitializeComponent();
+
+			geoloc();
 		}
 
+		async void geoloc()
+		{
+			var locator = CrossGeolocator.Current;
+			locator.DesiredAccuracy = 50;
 
+
+			var position = await locator.GetPositionAsync(10000);
+
+			string testloc = position.Latitude.ToString();
+			string testlat = position.Longitude.ToString();
+		}
 
 		async void Handle_Focused(object sender, Xamarin.Forms.FocusEventArgs e)
 		{
 			string sURL = "https://viacep.com.br/ws/{0}/json/";
 
 			HttpClient client = new HttpClient();
+
 
 			var uri = new Uri(string.Format(sURL, txtCep.Text));
 

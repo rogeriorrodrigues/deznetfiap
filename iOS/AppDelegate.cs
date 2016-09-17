@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin;
 
 namespace deznet.iOS
 {
@@ -18,6 +19,7 @@ namespace deznet.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
+			FormsMaps.Init();
 
 			LoadApplication(new App());
 
