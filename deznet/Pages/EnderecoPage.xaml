@@ -1,5 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="deznet.EnderecoPage">
 	<ContentPage.Content>
+		<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+			<Entry x:Name="txtCep" WidthRequest="200" Unfocused="Handle_Focused" />
+			<Entry  x:Name="txtrua" WidthRequest="200" IsEnabled="false"/>
+			<Entry x:Name="txtcom" WidthRequest="200"  IsEnabled="false"/>
+			<Entry x:Name="txtcidade" WidthRequest="200"  IsEnabled="false"/>
+			<Entry x:Name="txtuf" WidthRequest="200"  IsEnabled="false"/>
+			<Entry x:Name="txtbairro" WidthRequest="200"  IsEnabled="false"/>
+			<Entry x:Name="numero" WidthRequest="200"/>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

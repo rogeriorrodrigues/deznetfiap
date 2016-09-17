@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Acr.UserDialogs;
 
 using Xamarin.Forms;
 
@@ -14,7 +15,7 @@ namespace deznet
 
 		void Handle_Clicked(object sender, System.EventArgs e)
 		{
-			DisplayAlert("Recuperar", "Senha enviada para: " + txtRecuperar.Text, "OK" );
+			UserDialogs.Instance.ShowSuccess("Senha enviada para: " + txtRecuperar.Text);
 		}
 
 		async void cancelarClick(object sender, System.EventArgs e)
