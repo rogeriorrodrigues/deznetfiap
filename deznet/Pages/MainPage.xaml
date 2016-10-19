@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="deznet.MainPage"
+		Title="Pessoas"
+		xmlns:local="clr-namespace:deznet"
+		x:Name="MainPage">
+	
+<StackLayout Padding="20">
+		<Entry Placeholder="Nome" Text="{Binding FirstName}" />
+		<Entry Placeholder="Sobrenome" Text="{Binding LastName}"/>
+		<Entry Placeholder="Idade" Text="{Binding Age}" Keyboard="Numeric"/>
+		<Picker Title="Selecione" SelectedIndex="{Binding GenderIndex}">
+			<Picker.Items>
+				<x:String>Mulher</x:String>
+				<x:String>Homem</x:String>
+			</Picker.Items>
+		</Picker>
+		<Button Text="Adicionar" TextColor="White" BackgroundColor="Green" Command="{Binding AddCommand}" />
+		<ListView ItemsSource="{Binding Records}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextCell Text="{Binding}">
+						<TextCell.ContextActions>
+							<MenuItem Text="Delete" IsDestructive="true"
+								CommandParameter="{Binding .}"
+								Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=MainPage}}"/>
+						</TextCell.ContextActions>
+					</TextCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+
+		</ListView>
+		<Button Text="Excluir Tudo" TextColor="White" BackgroundColor="Red"
+			Command="{Binding DeleteAllCommand}"/>
+		
+		<Button Text="Mulher" TextColor="Black" 
+			BackgroundColor="Aqua" Command="{Binding GenderCommand}"
+			CommandParameter="Mulher"/>
+
+		<Button Text="Homem" TextColor="Black" 
+			BackgroundColor="Aqua" Command="{Binding GenderCommand}"
+			CommandParameter="Homem"/>
+
+		<Button Text="20+" TextColor="Black" 
+			BackgroundColor="Aqua" Command="{Binding AgeFilterCommand}"
+			CommandParameter="20"/>
+
+		<Button Text="50+" TextColor="Black" 
+			BackgroundColor="Aqua" Command="{Binding AgeFilterCommand}"
+			CommandParameter="50"/>
+		
+</StackLayout>
+</ContentPage>

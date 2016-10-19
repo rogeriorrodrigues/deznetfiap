@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace deznet
 {
+	/// <summary>
+	/// Cep result model.
+	/// </summary>
 	public class CepResultModel
 	{
 		[JsonProperty("cep")]

@@ -18,6 +18,9 @@ namespace deznet
 			geoloc();
 		}
 
+		/// <summary>
+		/// Geoloc this instance.
+		/// </summary>
 		async void geoloc()
 		{
 			var locator = CrossGeolocator.Current;
@@ -30,6 +33,11 @@ namespace deznet
 			string testlat = position.Longitude.ToString();
 		}
 
+		/// <summary>
+		/// Handles the focused.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		async void Handle_Focused(object sender, Xamarin.Forms.FocusEventArgs e)
 		{
 			string sURL = "https://viacep.com.br/ws/{0}/json/";

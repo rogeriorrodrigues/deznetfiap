@@ -16,8 +16,12 @@ namespace deznet
 			geoloc();
 		}
 
+		/// <summary>
+		/// Geoloc this instance.
+		/// </summary>
 		async void geoloc()
 		{
+			
 			var locator = CrossGeolocator.Current;
 			locator.DesiredAccuracy = 50;
 
@@ -28,7 +32,8 @@ namespace deznet
 			string testlat = position.Longitude.ToString();
 
 
-			map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(1)));
+			map.MoveToRegion(MapSpan.FromCenterAndRadius(
+				new Position(position.Latitude, position.Longitude), Distance.FromMiles(1)));
 
 			var pin = new Pin {
 				Type = PinType.Place,
@@ -39,7 +44,8 @@ namespace deznet
 
 			map.Pins.Add(pin);
 
-			string url = "http://api.geonames.org/findNearByWeatherJSON?lat=37&lng=-122&username=deznetfiap";
+			string url = 
+				"http://api.geonames.org/findNearByWeatherJSON?lat=37&lng=-122&username=deznetfiap";
 
 
 			HttpClient client = new HttpClient();
@@ -51,6 +57,7 @@ namespace deznet
 
 			lblLat.Text = position.Latitude.ToString();
 			lblLong.Text = position.Longitude.ToString();
+
 
 			TempoResultModel tempo = new TempoResultModel();
 

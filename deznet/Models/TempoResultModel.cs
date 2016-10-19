@@ -1,13 +1,18 @@
 ﻿using System;
 namespace deznet
 {
+	/// <summary>
+	/// Tempo result model.
+	/// </summary>
 	public class TempoResultModel
 	{
 		
 		public WeatherObservation weatherObservation { get; set; }
 	
 	}
-
+	/// <summary>
+	/// Weather observation.
+	/// </summary>
 	public class WeatherObservation
 	{
 		public int elevation { get; set; }
